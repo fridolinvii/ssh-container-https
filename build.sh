@@ -72,7 +72,7 @@ read -p "Do you want to build container and image $SSH_IMAGE_NAME? (y/[n]): " bu
 if [[ $build_image == "y" || $build_image == "Y" ]]; then
     docker build -t $SSH_IMAGE_NAME .
     docker run --detach \
-    -p "$SSH_PORT:22"
+    -p "$PORT_SSH:22"
     --name $SSH_CONTAINER_NAME \
     --env "VIRTUAL_HOST=$SITES" \
     --env "LETSENCRYPT_HOST=$SITES" \
